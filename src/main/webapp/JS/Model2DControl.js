@@ -548,7 +548,7 @@ function startCal(){
     console.log(data);
 
     //websocket
-    webSocket= new WebSocket('ws://localhost:8080/SimulationProcess');
+    webSocket= new WebSocket('ws://localhost:8080/flow3d_sim/SimulationProcess');
 
     webSocket.onopen = function(event) {
         onOpen(event);
