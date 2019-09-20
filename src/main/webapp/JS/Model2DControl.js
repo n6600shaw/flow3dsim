@@ -549,7 +549,7 @@ function startCal(){
 
     //websocket
     
-    webSocket= new WebSocket('wss://flow3dsim.herokuapp.com/flow3d_sim/SimulationProcess');
+    webSocket= new WebSocket('wss://flow3dsim.herokuapp.com/SimulationProcess');
 
     webSocket.onopen = function(event) {
         onOpen(event);
