@@ -30,6 +30,12 @@
   <artifactId>gson</artifactId>
   <version>2.8.5</version>
 </dependency>
+<dependency>
+  <groupId>hu.blackbelt.karaf.features</groupId>
+  <artifactId>javax</artifactId>
+  <version>1.0.2</version>
+  <type>pom</type>
+</dependency>
 
  
   </dependencies>
