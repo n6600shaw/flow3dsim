@@ -265,7 +265,10 @@ li{
 #info {
 	padding: 10px;
 	margin: auto;
+	margin-top: 60px;
 	margin-bottom: 10px;
+		border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
 }
 
 #footerbar {
