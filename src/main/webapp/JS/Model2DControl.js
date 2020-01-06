@@ -118,6 +118,7 @@ function validateModel() {
         });
         if (!illegal){
             validated=true;
+            alert("Input are valid!")
         }
 
 
@@ -571,6 +572,9 @@ function startCal(){
             replay.set(steps,res);
             steps++;
             $("#outputconsole").append("Step: "+steps+"<br/>"+ "Everage injecting phase saturation: "+everageS+"<br/>"+"Everage pressure: "+everageP+"<br/>>"+"-----------<br/>");
+            var odiv    = $('#output-div');
+            var height = odiv[0].scrollHeight;
+            odiv.scrollTop(height);
             console.log(replay);
         }
         var currenttime=new Date().getTime();
@@ -754,6 +758,14 @@ function delBtnData(obj){
     });
     ul.removeChild(oLi);
 
+}
+function popsample(){
+	$('#injectp').val(40)
+	$('#productionp').val(15)
+	$('#fieldp').val(25)
+	$('#fieldperm').val(200)
+	$('#v1').val(0.3)
+	$('#v2').val(0.8)
 }
 
 

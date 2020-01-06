@@ -1,412 +1,162 @@
-
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Flow3DSim</title>
-    <style>
-        ::-webkit-scrollbar {
-            width: 5px;
-        }
-        /* Track */
-        ::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 5px grey;
-            border-radius: 10px;
-        }
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-        }
-
-        body{
-            width: 1318px;
-            max-width:   1320px;;
-            margin: auto;
-            font-family:  Georgia,serif;
-            background-color: #2F5596;
-
-            outline: none;
-        }
-        #content{
-
-            width: 1320px;
-            height:900px;
-
-            border: none;
-
-
-        }
-        #navi{
-            background-color: #2F5596;
-            border-radius: 10px;
-            float: left;
-            height:670px;
-            width: 60px;
-            border: 1px solid silver;
-            box-shadow: 0 0 10px gray;
-        }
-        h3{
-            color: #2F5596;
-
-        }
-        #header {
-            height: 140px;
-
-            width: 100%;
-            color:#2F5596;
-            color: white;
-            margin-bottom: 10px;
-            font-family:  Lato,'Lucida Sans Unicode','Lucida Grande',sans-serif;
-            font-size: 18px;
-            font-weight:   600;
-            float: left;
-
-
-        }
-        #headbar{
-            height:40px;
-        }
-        #headerlogo{
-            color:#2F5596;
-            line-hight: 1px;
-            padding:10px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid whitesmoke;
-            width: auto;
-
-
-
-        }
-        #home{
-            border-right-style: dotted;
-            border-width: thick;
-            border-color: #2F5596;
-
-        }
-        #input {
-            margin-left: 1px;
-            line-height:30px;
-
-            background-color:#eeeeee;
-            height:610px;
-            width:310px;
-            float:left;
-
-
-            background-color:  #FAFBFD;
-            overflow-y:;
-
-            font-weight: 550;
-            font-size:12px;
-
-        }
-        #model-input{
-            border-radius: 15px;
-            border: 1px solid silver;
-            box-shadow: 0 0 10px gray;
-            line-height:30px;
-            background-color:#eeeeee;
-            height:240px;
-            width:290px;
-            float:left;
-            padding: 10px;
-            background-color:  #FAFBFD;
-
-
-        }
-        #simulation-input{
-            border-radius: 15px;
-            border: 1px solid silver;
-            line-height:30px;
-            margin-top: 10px;
-            background-color:#eeeeee;
-            height:190px;
-            width:290px;
-            float:left;
-            padding: 10px;
-            background-color:  #FAFBFD;
-            padding-right: px;
-            box-shadow: 0 0 10px gray;
-        }
-        #validation{
-            float:right;
-            padding:5px;
-            width: 290px;
-        }
-
-        .vl{
-            width: 0px;
-            height:600px;
-
-            border-left: 1px solid lightgray;
-            float:left;
-            margin: 3px;
-
-        }
-        #canvas{
-            font-size: 12px;
-            font-weight: 550;
-            border-radius: 10px;
-            height:585px;
-            width:678px;
-            float:left;
-            box-shadow: 0 0 10px gray;
-            border: 1px solid silver;
-            padding:5px;
-            padding-top: 20px;
-        }
-        #output{
-            font-size: 10px;
-            font-weight: 500;
-            border-radius: 10px;
-            height:600px;
-            width:251px;
-            float:left;
-            margin-left:2px;
-            margin-right: 2px;
-            box-shadow: 0 0 10px gray;
-            border: 1px solid silver;
-            padding:5px;
-        }
-        #outputconsole{
-
-            height:550px;
-            width:249px;
-            float:left;
-            margin-top: 10px;
-            overflow-y: scroll;
-            border: 1px solid silver;
-
-        }
-
-        #modelcanvas{
-
-            width:678px;
-            border: 1px solid silver;
-            position:static;
-            height:500px;
-            float: top;
-            margin-top:5px;
-        }
-        #canvas span{
-            float:top;
-            height:50px;
-
-            margin:5px ;
-
-
-        }
-
-        #footer {
-            margin-top: 0px;
-            color:black;
-            clear:both;
-            font-size: 12px;
-
-            padding:0;
-
-        }
-        .inputs{
-            margin-top: 4px;
-            width: 45px;
-            line-hight: 5px;
-            float: right;
-
-            border-width: thin;
-            border-radius: 2px;
-        }
-        br {
-            display: block;
-            margin: 10px 0;
-        }
-        button{
-            padding: 5px 12px;
-            border-width: 1px;
-            border-radius: 5px;
-            font-family:Arial, Helvetica, sans-serif;
-            font-size: 10px;
-            background-color: #eeeeee;
-            text-decoration: none;
-            margin: 4px 2px;
-            display: inline-block;
-        }
-        #hetro{
-            margin-top: 280px;
-            width: 250px;
-            padding: 8px;
-            border-top: 1px solid silver;
-            border-bottom: 1px solid silver;
-        }
-        #hetro button{
-
-        }
-
-        #addhetero{
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        #heterogroups span button{
-            border: none;
-            font-size: 10px;
-            background-color: #eeeeee;
-            float:right;
-        }
-        #info{
-            padding: 10px;
-            margin-top: 280px;
-            margin-bottom: 10px;
-            border-radius: 15px;
-            border: 1px solid silver;
-            height:156px;
-            width: 290px;
-            box-shadow: 0 0 10px gray;
-        }
-        #footerbar{
-            width: 1318px;
-
-            text-align: center;
-
-            height: 60px;
-            color: black;
-
-        }
-
-    </style>
-
-    <link rel="stylesheet" href="JS/jquery-ui-1.12.1/jquery-ui.css">
-    <script src="JS/three.js"></script>
-    <script src="JS/dat.gui.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-
+<meta charset="UTF-8">
+<title>Flow3dsim</title>
+<link rel="stylesheet" href="JS/jquery-ui-1.12.1/jquery-ui.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+	integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+	crossorigin="anonymous">
+<link href="CSS/touchsplitter.css" rel="stylesheet" type="text/css">
+<link href="CSS/style.css" rel="stylesheet" type="text/css">
+<link href="CSS/bootstrap-tour-standalone.min.css" rel="stylesheet">
 
 
 </head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="navbar-brand" href="#"> Flow3dSim </span>
 
-<body class="ui-widget-content" onload="" >
+			</div>
+		</div>
+	</nav>
+	<div class="split-me-container">
+		<div class="split-me">
+			<div class="input-div">
+			 <div id="input">
+				<div id="model-input">
+						<span style="color: #2F5596;">Populate with sample inputs: </span><button class="btn btn-default btn-sm" id="addhetero"
+						onclick="popsample()"><span class="glyphicon glyphicon-arrow-down"></span></button>
+					<br />
+				
+					<h3>Input Parameters</h3>
 
-<div id="header">
-    <div  id="headbar"></div>
-    <div id="headerlogo">
+					Inject pressure (MPa):<input type='number' class="inputs" min="0"
+						id="injectp"> <br /> Production pressure (MPa):<input
+						type='number' class="inputs" min="0" id="productionp"><br />
+					Field pressure (MPa):<input type='number' class="inputs"
+						id="fieldp"> <br /> Field permeability (mDarcy):<input
+						type='number' class="inputs" max="1000" min="0" id="fieldperm"><br />
+					Injection phase viscosity (cP):<input type='number' class="inputs"
+						id="v1"><br /> In-situ phase viscosity (cP):<input
+						type='number' class="inputs" id="v2"> <br />
 
-        <div style="margin-left: "></div>
+				</div>
+			</div>
+				<div id="hetro">
+					<h3>Heterogeneous Regions</h3>
+					Heterogeneity:
+					<button class="btn btn-default btn-sm" id="addhetero"
+						onclick="addingHetero()"><span style="color:darkblue" class="glyphicon glyphicon-plus"></span> Add hetero</button>
+					<br />
+					<div id="heterogroups"></div>
+				</div>
+				<div id="validation">
+					<div class="btn-group">
+						<button class="btn btn-default btn-sm" onclick="validateModel()"><span style="color:green" class="glyphicon glyphicon-ok"></span> Validate
+							input</button>
+						<button class="btn btn-default btn-sm" onclick="reset()"><span class="glyphicon glyphicon-trash"></span>  Reset
+							model</button>
+					</div>
+					<br>
+				</div>
 
-        <span style="font-size: 28px">3D Darcy Flow Simulator</span><br/>
-        <span style="font-size: 15px"> Developed by: Xiaolong Liu @ UPRC</span>
-
-    </div>
-
-</div>
-<div style="padding:10px; color=gray">
-
-<p>This simulator models the flow pattern when one type of fluid is displacing another type of fluid in underground environment</p>
-
-<u>Try it out with sample parameters:</u><br>
-Inject pressure: 40<br>
-Production pressure: 15<br>
-Field pressure: 25<br>
-Field permeability: 200<br>
-Injection phase viscosity: 0.3<br>
-Production phase viscosity: 0.8<br>
-
-Then "Validate input"<br>
-
-Click "Start"<br>
-
-
-</div>
-
-
-
-<div id="content">
-
-    <div style="padding-left: 15px; width:1000px;height:60px;float:left;"><h3 style="color:#FF2700 ">Darcy Flow Simulation</h3></div>
-
-
-
-
-    <div id="input">
-        <div id="model-input">
-            <h3>Input Parameters</h3>
-            Inject pressure (MPa):<input type='number' class="inputs" min="0" id="injectp"> <br/>
-            Production pressure (MPa):<input type='number' class="inputs" min="0" id="productionp"><br/>
-            Field pressure (MPa):<input type='number' class="inputs" id="fieldp"> <br/>
-            Field permeability (mDarcy):<input type='number' class="inputs" max="1000" min="0" id="fieldperm"><br/>
-            Injection phase viscosity (cP):<input type='number' class="inputs" id="v1"><br/>
-            In-situ phase viscosity (cP):<input type='number' class="inputs" id="v2"> <br/>
-
-        </div>
-        <div id="hetro">
-            <h3>Heterogeneous Regions</h3>
-            Heterogeneity: <button id="addhetero" onclick="addingHetero()">Add hetero</button><br/>
-            <div id="heterogroups">
-            </div>
-        </div>
-        <div id="validation">
-
-            <button style="margin-left: 50px" onclick="validateModel()">Validate input</button> <button onclick="reset()">Reset model</button><br/>
-        </div>
-
-        <div id="simulation-input">
-            <h3>Run Setting</h3>
-            Termination Criteria:<br/>
-            <input style="margin-top: 10px; margin-bottom: 10px" id="ends" type="checkbox"> Target saturation at outlet:<input id="endS" style="margin-top: 8px" class="inputs" type="number" min="0" max="1"><br/>
-            <input style="margin-bottom: 20px" id="endt" type="checkbox"> Target elapse time (mins):<input id="endT" style="margin-top: 4px" class="inputs" type="number" ><br/>
+				<div id="simulation-input">
+					<h3>Run Setting</h3>
+					Termination Criteria:<br /> <input
+						style="margin-top: 10px; margin-bottom: 10px" id="ends"
+						type="checkbox"> Target saturation at outlet:<input
+						id="endS" style="margin-top: 8px" class="inputs" type="number"
+						min="0" max="1"><br /> <input style="margin-bottom: 20px"
+						id="endt" type="checkbox"> Target elapse time (mins):<input
+						id="endT" style="margin-top: 4px" class="inputs" type="number"><br />
 
 
-            <button style="margin-left: 30px" onclick="start();">Start</button>
-            <button id="pause" >Pause</button>
-            <button onclick="terminate()">Terminate</button>
+				</div>
+				<div class="start-sim">
+					<div class="btn-group">
+						<button class="btn btn-default" onclick="start();"> <span style="color:green "class="glyphicon glyphicon-triangle-right"></span> Run</button>
+						<button class="btn btn-default" id="pause"><span class="glyphicon glyphicon-pause"></span> Pause</button>
+						<button class="btn btn-default btn-sm" onclick="terminate()"> <span style="color:red"class="glyphicon glyphicon-ban-circle"></span> Terminate</button>
+					</div>
+				</div>
+				<div id="info">
+					<span class="ui-icon ui-icon-info"> </span><Span
+						class="badge badge-info"> Information</span><br /> <span
+						style="font-size: 10;">&#183; Use reasonable input for
+						Darcy flow.</span><br /> <span style="font-size: 10;">&#183;
+						Default termination criteria is: Outlet saturation of 0.5, elapsed
+						time of 1 min.</span><br />
+						<span style="font-size: 10;">&#183;
+					  Refer to the project repository for more information.</span><br />
+				</div>
 
-        </div>
-        <div id="info">
-            <span class="ui-icon ui-icon-info"> </span><Span style="color: #2F5596;font-weight: 600;"> Simulation information</span><br/>
-            <span style="font-size: 10;">&#183; Use reasonable input for Darcy flow.</span><br/>
-            <span style="font-size: 10;">&#183; Default termination criteria is: Outlet saturation of 0.5, elapsed time of 1 min.</span><br/>
+			</div>
+			<div>
+				<div class="model-div">
+					<div id="canvas">
 
+						<span id="view" style=""> View: <select id="selectview">
+								<option value="Permeability">Permeability</option>
+								<option value="Saturation">Saturation</option>
+								<option value="Pressure">Pressure</option>
+						</select>
+						</span>
+						<div id="modelcanvas"></div>
+						<div id="heterodial">
+							Permeability (mDarcy): <input type='number' class="inputs"
+								id="heteroperm">
+						</div>
+					</div>
+				</div>
+				<div id="output-div" class="output-div">
+					<div id="output">
+						<br /> <span
+							style="font-family: 'Lucida Console'; color: white; font-size: 14px">Simulation
+							output:</span>
+						<div
+							style="font-family: 'Lucida Console'; color: white; font-size: 12px"
+							id="outputconsole"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+	<footer class="panel-footer font-small blue bg-dark p-4">
 
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3" style="color:#4d4d4d">
+			Author: Xiaolong Liu @ UPRC. | Repository: <a
+				href="https://mdbootstrap.com/education/bootstrap/">
+				github.com/n6600shaw/3D-flow-simulation-app.</a>
+		</div>
 
-        </div>
+		<!-- Copyright -->
 
-    </div>
-    <div class="vl"></div>
+	</footer>
 
-    <div id="canvas">
-
-    <span id="view">
-        View: <select id="selectview">
-            <option value="Permeability">Permeability</option>
-            <option value="Saturation">Saturation</option>
-            <option value="Pressure">Pressure</option>
-        </select>
-    </span>
-
-
-        <div id="modelcanvas"></div>
-        <div id="heterodial">Permeability (mDarcy): <input type='number' class="inputs" id="heteroperm"> </div>
-    </div>
-    <div id="output">
-        <br/>
-        Output:
-        <div style="font-family: 'Lucida Console';font-size: 12px" id="outputconsole">
-
-        </div>
-    </div>
-
-
-
-</div>
-<div id="footer">
-
-    <div id="footerbar">
-        <div style="margin-top: 10px">&copy; Xiaolong Liu</div>
-        <div>Contact: xiaolongl@mun.ca
-    </div>
-</div>
-<script src="JS/jquery-ui-1.12.1/jquery-ui.js"></script>
-<script src="JS/Model2DControl.js"></script>
 
 </body>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="JS/jquery-ui-1.12.1/jquery-ui.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+	integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+	crossorigin="anonymous"></script>
+<script src="JS/bootstrap-tour-standalone.min.js"></script>
 
-
-
+<script src="JS/jquery.touchsplitter.js"></script>
+<script src="JS/three.js"></script>
+<script src="JS/dat.gui.js"></script>
+<script src="JS/Model2DControl.js"></script>
+<script src="JS/main.js"></script>
 </html>
