@@ -11,10 +11,18 @@ body {
 }
 .navbar{
 	margin-bottom:0px !important;
-
- 
 	
 }
+.navbar-brand{
+	
+	font-size:1.7em;
+	vertical-align: middle;
+}
+
+.brand-text{
+	margin-top:5px;
+}
+
 .split-me-container {
 
 	
