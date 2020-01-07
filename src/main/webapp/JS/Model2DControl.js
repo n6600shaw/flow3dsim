@@ -118,7 +118,7 @@ function validateModel() {
         });
         if (!illegal){
             validated=true;
-            alert("Input are valid!")
+            alert("Input are valid. Simulation can be started.")
         }
 
 
@@ -548,9 +548,10 @@ function startCal(){
     var dataJson=JSON.stringify(data);
     console.log(data);
 
-    //websocket
     
     webSocket= new WebSocket('wss://flow3dsim.herokuapp.com/SimulationProcess');
+
+    //webSocket= new WebSocket('ws://localhost:8080/flow3d_sim/SimulationProcess');
 
     webSocket.onopen = function(event) {
         onOpen(event);
@@ -759,6 +760,7 @@ function delBtnData(obj){
     ul.removeChild(oLi);
 
 }
+
 function popsample(){
 	$('#injectp').val(40)
 	$('#productionp').val(15)
@@ -767,6 +769,5 @@ function popsample(){
 	$('#v1').val(0.3)
 	$('#v2').val(0.8)
 }
-
 
 
